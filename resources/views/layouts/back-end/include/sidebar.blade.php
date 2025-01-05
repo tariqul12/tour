@@ -61,9 +61,9 @@
                         </svg>
                         <span class="side-menu__label">Service Module</span><i class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
-                        <li><a href="{{ route('category.index') }}" class="slide-item">Manage Category</a></li>
-                        <li><a href="{{ route('brand.index') }}" class="slide-item">Manage Brand</a></li>
-                        <li><a href="{{ route('service.index') }}" class="slide-item">Manage Service</a></li>
+                        {{-- <li><a href="{{ route('category.index') }}" class="slide-item">Manage Category</a></li> --}}
+                        {{-- <li><a href="{{ route('brand.index') }}" class="slide-item">Manage Brand</a></li> --}}
+                        {{-- <li><a href="{{ route('service.index') }}" class="slide-item">Manage Service</a></li> --}}
                         <li><a href="{{ route('slider.index') }}" class="slide-item">Manage Slider</a></li>
                         <li><a href="{{ route('banner.index') }}" class="slide-item">Manage Banner</a></li>
 
@@ -119,7 +119,7 @@
                         <span class="side-menu__label">Client Module</span><i class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
                         <li><a href="{{ route('client.index') }}" class="slide-item">Client Manage</a></li>
-                        <li><a href="{{ route('team.index') }}" class="slide-item">Team Manage</a></li>
+                        {{-- <li><a href="{{ route('team.index') }}" class="slide-item">Team Manage</a></li> --}}
                     </ul>
                 </li>
                 <li class="slide">

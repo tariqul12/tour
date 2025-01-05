@@ -1,5 +1,5 @@
 @extends('layouts.back-end.master')
-@section('title','Service page')
+@section('title', 'Service page')
 
 @section('body')
     <!-- PAGE-HEADER -->
@@ -58,33 +58,26 @@
                         <tr>
                             <th>Image</th>
                             <td>
-                                <img src="{{asset($service->image)}}" height="200" alt="image" />
+                                <img src="{{ asset($service->image) }}" height="200" alt="image" />
                             </td>
                         </tr>
                         <tr>
                             <th>Feather Status</th>
-                            <td>{{$service->feather_status}}</td>
+                            <td>{{ $service->feather_status }}</td>
                         </tr>
                         <tr>
                             <th>Home Status</th>
-                            <td>{{$service->home_status}}</td>
+                            <td>{{ $service->home_status }}</td>
                         </tr>
                         <tr>
                             <th>Status</th>
-                            <td>{{$service->status}}</td>
+                            <td>{{ $service->status }}</td>
                         </tr>
                         <tr>
                             <th>Order Status</th>
-                            <td>{{$service->order_status}}</td>
+                            <td>{{ $service->order_status }}</td>
                         </tr>
-                        <tr>
-                            <th>Other Image</th>
-                            <td>
-                                @foreach($service->otherImages as $other_image)
-                                    <img src="{{asset($other_image->image)}}" height="200" alt="" />
-                                @endforeach
-                            </td>
-                        </tr>
+
                     </table>
                 </div>
             </div>

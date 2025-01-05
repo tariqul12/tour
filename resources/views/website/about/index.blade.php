@@ -4,8 +4,7 @@
 
     <!-- Inner Banner html start-->
     <section class="inner-banner-wrap">
-        <div class="inner-baner-container"
-            style="background-image: url({{ asset('/') }}website/assets/images/inner-banner.jpg);">
+        <div class="inner-baner-container" style="background-image: url({{ asset($title_banner->image) }});">
             <div class="container">
                 <div class="inner-banner-content">
                     <h1 class="inner-title">About us</h1>
@@ -33,28 +32,18 @@
                     </div>
                 </div>
                 <div class="about-video-wrap" style="background-image: url({{ asset($about->image2) }});">
-                    <div class="video-button">
+                    {{-- <div class="video-button">
                         <a id="video-container" data-video-id="IUN664s7N-c">
                             <i class="fas fa-play"></i>
                         </a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
         <!-- callback section html start -->
-        <div class="fullwidth-callback" style="background-image: url({{ asset('/') }}website/assets/images/img26.jpg);">
+        <div class="fullwidth-callback" style="background-image: url({{ asset($footer_banner->image) }});">
             <div class="container">
-                <div class="section-heading section-heading-white text-center">
-                    <div class="row">
-                        <div class="col-lg-8 offset-lg-2">
-                            <h5 class="dash-style">CALLBACK FOR MORE</h5>
-                            <h2>GO TRAVEL.DISCOVER. REMEMBER US!!</h2>
-                            <p>Mollit voluptatem perspiciatis convallis elementum corporis quo veritatis aliquid blandit,
-                                blandit torquent, odit placeat. Adipiscing repudiandae eius cursus? Nostrum magnis maxime
-                                curae placeat.</p>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="callback-counter-wrap">
                     <div class="counter-item">
                         <div class="counter-item-inner">
@@ -63,7 +52,7 @@
                             </div>
                             <div class="counter-content">
                                 <span class="counter-no">
-                                    <span class="counter">500</span>K+
+                                    <span class="counter">{{ $about->happy_customer }}</span>K+
                                 </span>
                                 <span class="counter-text">
                                     Satisfied Clients
@@ -78,7 +67,7 @@
                             </div>
                             <div class="counter-content">
                                 <span class="counter-no">
-                                    <span class="counter">250</span>K+
+                                    <span class="counter">{{ $about->awards }}</span>K+
                                 </span>
                                 <span class="counter-text">
                                     Awards Achieve
@@ -93,7 +82,7 @@
                             </div>
                             <div class="counter-content">
                                 <span class="counter-no">
-                                    <span class="counter">15</span>K+
+                                    <span class="counter">{{ $about->members }}</span>K+
                                 </span>
                                 <span class="counter-text">
                                     Active Members
@@ -108,7 +97,7 @@
                             </div>
                             <div class="counter-content">
                                 <span class="counter-no">
-                                    <span class="counter">10</span>K+
+                                    <span class="counter">{{ $about->destinations }}</span>K+
                                 </span>
                                 <span class="counter-text">
                                     Tour Destnation

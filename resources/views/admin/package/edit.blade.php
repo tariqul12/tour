@@ -49,37 +49,78 @@
                             </div>
                         </div>
                         <div class="row mb-4">
-                            <label for="name" class="col-md-3 form-label">Package Speed</label>
+                            <label for="duration" class="col-md-3 form-label">Duration</label>
                             <div class="col-md-9">
-                                <input class="form-control" id="" value="{{ $package->speed }}" name="speed"
-                                    placeholder="Package Speed" type="number" />
+                                <input class="form-control" id="duration" value="{{ $package->duration }}" name="duration"
+                                    placeholder="duration" type="number" />
                             </div>
                         </div>
                         <div class="row mb-4">
-                            <label for="name" class="col-md-3 form-label">Package Download Speed</label>
+                            <label for="name" class="col-md-3 form-label">Package single price</label>
                             <div class="col-md-9">
-                                <input class="form-control" id="" value="{{ $package->download_speed }}"
-                                    name="download_speed" placeholder="Package Download Speed" type="number" />
+                                <input class="form-control" id="" value="{{ $package->single_price }}"
+                                    name="single_price" placeholder="Package single price" type="number" />
                             </div>
                         </div>
                         <div class="row mb-4">
-                            <label for="name" class="col-md-3 form-label">Package Up Speed</label>
+                            <label for="name" class="col-md-3 form-label">Package couple price</label>
                             <div class="col-md-9">
-                                <input class="form-control" id="" value="{{ $package->up_speed }}" name="up_speed"
-                                    placeholder="Package Up Speed" type="number" />
+                                <input class="form-control" id="" value="{{ $package->couple_price }}"
+                                    name="couple_price" placeholder="Package Couple Price" type="number" />
                             </div>
                         </div>
                         <div class="row mb-4">
-                            <label for="name" class="col-md-3 form-label">Package Price</label>
+                            <label for="name" class="col-md-3 form-label">Package Destination</label>
                             <div class="col-md-9">
-                                <input class="form-control" id="" value="{{ $package->price }}" name="price"
-                                    placeholder="Package Price" type="number" />
+                                <input class="form-control" id="" value="{{ $package->place }}" name="place"
+                                    placeholder="Package Destination" type="text" />
                             </div>
                         </div>
                         <div class="row mb-4">
-                            <label for="Code" class="col-md-3 form-label">Description</label>
+                            <label for="Code" class="col-md-3 form-label">Short Description</label>
                             <div class="col-md-9">
-                                <textarea class="form-control" id="summernote" name="description" placeholder="type code" type="text">{{ $package->description }}</textarea>
+                                <textarea class="form-control" id="" name="short_description" placeholder="">{{ $package->short_description }}</textarea>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="Code" class="col-md-3 form-label">Long Description</label>
+                            <div class="col-md-9">
+                                <textarea class="form-control" id="summernote" name="long_description" placeholder="">{{ $package->long_description }}</textarea>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="tour_start_date" class="col-md-3 form-label">Tour Start Date</label>
+                            <div class="col-md-9">
+                                <input class="form-control" id="tour_start_date" value="{{ $package->tour_start_date }}"
+                                    name="tour_start_date" placeholder="tour start date" type="date" />
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="tour_end_date" class="col-md-3 form-label">Tour End Date</label>
+                            <div class="col-md-9">
+                                <input class="form-control" id="tour_end_date" value="{{ $package->tour_end_date }}"
+                                    name="tour_end_date" placeholder="tour end date" type="date" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="imgInp" class="col-md-3 form-label">Package Image</label>
+                            <div class="col-md-9">
+                                <input type="file" id="imgInp" class="dropify" name="image"
+                                    data-height="200" />
+                                <img width="120" class="my-1" src="{{ asset($package->image) }}" id=""
+                                    alt="">
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="imgInp" class="col-md-3 form-label">Package Other Image</label>
+                            <div class="col-md-9">
+                                <input type="file" id="" class="form-control" name="other_image[]" multiple
+                                    accept="image/*" data-height="200" />
+                                @foreach ($package->otherImages as $otherImage)
+                                    <img width="120" class="my-1" src="{{ asset($otherImage->image) }}"
+                                        alt="">
+                                @endforeach
                             </div>
                         </div>
                         <div class="row mb-4">

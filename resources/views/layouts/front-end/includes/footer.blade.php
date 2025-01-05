@@ -43,32 +43,23 @@
                     <aside class="widget widget_recent_post">
                         <h3 class="widget-title">Latest Package</h3>
                         <ul>
-                            <li>
-                                <h5>
-                                    <a href="#">Life is a beautiful journey not a destination</a>
-                                </h5>
-                                <div class="entry-meta">
-                                    <span class="post-on">
-                                        <a href="#">August 17, 2021</a>
-                                    </span>
-                                    <span class="comments-link">
-                                        <a href="#">No Comments</a>
-                                    </span>
-                                </div>
-                            </li>
-                            <li>
-                                <h5>
-                                    <a href="#">Take only memories, leave only footprints</a>
-                                </h5>
-                                <div class="entry-meta">
-                                    <span class="post-on">
-                                        <a href="#">August 17, 2021</a>
-                                    </span>
-                                    <span class="comments-link">
-                                        <a href="#">No Comments</a>
-                                    </span>
-                                </div>
-                            </li>
+                            @foreach ($footer_package as $package)
+                                <li>
+                                    <h5>
+                                        <a href="{{ route('packageOrder', $package->id) }}">{{ $package->title }}</a>
+                                    </h5>
+                                    <div class="entry-meta">
+                                        <span class="post-on">
+                                            <a href="{{ route('packageOrder', $package->id) }}">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                {{ $package->single_price }}
+                                            </a>
+                                        </span>
+
+                                    </div>
+                                </li>
+                            @endforeach
+
                         </ul>
                     </aside>
                 </div>

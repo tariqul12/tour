@@ -50,39 +50,76 @@
                             </div>
                         </div>
                         <div class="row mb-4">
-                            <label for="name" class="col-md-3 form-label">Package Speed</label>
+                            <label for="destination" class="col-md-3 form-label">Package Destination</label>
                             <div class="col-md-9">
-                                <input class="form-control" id="" name="speed" placeholder="Package Speed"
+                                <input class="form-control" id="destination" name="place"
+                                    placeholder="Package Destination" type="text" />
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="single_price" class="col-md-3 form-label">Package Single Price</label>
+                            <div class="col-md-9">
+                                <input class="form-control" id="single_price" name="single_price"
+                                    placeholder="Package single price" type="number" />
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="couple_price" class="col-md-3 form-label">Package Couple Price</label>
+                            <div class="col-md-9">
+                                <input class="form-control" id="couple_price" name="couple_price"
+                                    placeholder="Package couple price" type="number" />
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="duration" class="col-md-3 form-label">Duration</label>
+                            <div class="col-md-9">
+                                <input class="form-control" id="duration" name="duration" placeholder="Package Duration"
                                     type="number" />
                             </div>
                         </div>
                         <div class="row mb-4">
-                            <label for="name" class="col-md-3 form-label">Package Download Speed</label>
+                            <label for="short_description" class="col-md-3 form-label">Short Description</label>
                             <div class="col-md-9">
-                                <input class="form-control" id="" name="download_speed"
-                                    placeholder="Package Download Speed" type="number" />
+                                <textarea class="form-control" id="short_description" name="short_description" placeholder="short description"></textarea>
                             </div>
                         </div>
                         <div class="row mb-4">
-                            <label for="name" class="col-md-3 form-label">Package Up Speed</label>
+                            <label for="" class="col-md-3 form-label">Long Description</label>
                             <div class="col-md-9">
-                                <input class="form-control" id="" name="up_speed" placeholder="Package Up Speed"
-                                    type="number" />
+                                <textarea class="form-control" id="summernote" name="long_description" placeholder="Description"></textarea>
                             </div>
                         </div>
                         <div class="row mb-4">
-                            <label for="name" class="col-md-3 form-label">Package Price</label>
+                            <label for="tour_start_date" class="col-md-3 form-label">Tour Start Date</label>
                             <div class="col-md-9">
-                                <input class="form-control" id="" name="price" placeholder="Package Price"
-                                    type="number" />
+                                <input class="form-control" id="tour_start_date" name="tour_start_date"
+                                    placeholder="Package Duration" type="date" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="tour_end_date" class="col-md-3 form-label">Tour End Date</label>
+                            <div class="col-md-9">
+                                <input class="form-control" id="tour_end_date" name="tour_end_date"
+                                    placeholder="Package Duration" type="date" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="imgInp" class="col-md-3 form-label">Package Image</label>
+                            <div class="col-md-9">
+                                <input type="file" name="image" class="dropify" data-height="200" />
                             </div>
                         </div>
                         <div class="row mb-4">
-                            <label for="Code" class="col-md-3 form-label">Description</label>
+                            <label for="iconInp" class="col-md-3 form-label">Package Other Image</label>
                             <div class="col-md-9">
-                                <textarea class="form-control" id="summernote" name="description" placeholder="Description"></textarea>
+                                <input class="dropify" name="other_image[]" placeholder="Other Image" multiple
+                                    accept="image/*" type="file" />
                             </div>
                         </div>
+
+
                         <div class="row mb-4">
                             <label for="radio" class="col-md-3 form-label">status</label>
                             <div class="col-md-9">

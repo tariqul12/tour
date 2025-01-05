@@ -24,9 +24,9 @@ class About extends Model
         $about->title               = $request->title;
         $about->description         = $request->description;
         $about->happy_customer      = $request->happy_customer;
-        $about->employee            = $request->employee;
+        $about->destinations        = $request->destinations;
         $about->awards              = $request->awards;
-        $about->network             = $request->network;
+        $about->members             = $request->members;
         $about->image1              = $imageUrl1;
         $about->image2              = $imageUrl2;
         $about->save();

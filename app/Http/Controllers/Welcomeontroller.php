@@ -10,7 +10,9 @@ use App\Models\Category;
 use App\Models\Client;
 use App\Models\Company;
 use App\Models\Consultation;
+use App\Models\Destination;
 use App\Models\Frequent;
+use App\Models\Gallery;
 use App\Models\Package;
 use App\Models\Policy;
 use App\Models\Service;
@@ -25,16 +27,19 @@ class Welcomeontroller extends Controller
     public function index()
     {
         $categories = Category::where('status', 1)->orderBy('id', 'desc')->take(3)->get();
+        $destinations = Destination::where('status',1)->latest()->take(4)->get();
+        $gallerys = Gallery::where('status',1)->latest()->take(4)->skip(1)->get();
+        $gallerysingle = Gallery::where('status',1)->latest()->first();
         $services = Service::where('status', 1)->orderBy('id', 'desc')->take(4)->get();
         $about = About::orderBy('id', 'desc')->first();
-        $packages = Package::where('status', 1)->orderBy('id', 'desc')->take(4)->get();
+        $packages = Package::where('status', 1)->orderBy('id', 'desc')->take(3)->get();
         $sliders = Slider::where('status', 1)->orderBy('id', 'desc')->take(4)->get();
         $home_banner = Banner::where(['banner_type'=>2])->orderBy('id', 'desc')->first();
         $order_banner = Banner::where(['banner_type'=>4])->orderBy('id', 'desc')->first();
         $clients = Client::whereStatus(1)->orderBy('id', 'desc')->take(6)->get();
         $teams = Team::whereStatus(1)->orderBy('id', 'desc')->take(6)->get();
         $brands = Brand::whereStatus(1)->orderBy('id', 'desc')->get();
-        return view('website.home.index', compact('about', 'packages', 'services', 'categories', 'sliders','home_banner','order_banner','clients','teams','brands'));
+        return view('website.home.index', compact('about', 'packages', 'services', 'categories', 'sliders','home_banner','order_banner','clients','teams','destinations','gallerys','gallerysingle'));
     }
 
     public function about()
@@ -84,22 +89,30 @@ class Welcomeontroller extends Controller
 
     public function destination()
     {
-        return view('website.destination.index');
+        $destinations = Destination::where('status',1)->latest()->get();
+        return view('website.destination.index', compact('destinations'));
     }
     public function gellary()
     {
-        return view('website.gellary.index');
+        $gallerys =  Gallery::where('status',1)->latest()->get();
+        return view('website.gellary.index', compact('gallerys'));
     }
-    public function packageOrder()
+    public function packageOrder($id)
     {
-        $packages = Package::where('status', 1)->orderBy('id', 'desc')->take(4)->get();
+        $package = Package::find($id);
         $order_banner = Banner::where(['banner_type'=>4])->orderBy('id', 'desc')->first();
-        return view('website.order.index', compact('packages','order_banner'));
+        $gellares = Gallery::where('status',1)->latest()->get();
+        $packages = Package::where('status',1)->latest()->take(4)->get(); 
+        return view('website.order.index', compact('package','order_banner','gellares','packages'));
     }
-    public function ftp()
+
+    public function booking()
     {
-        return view('website.ftp.index');
+        $order_banner = Banner::where(['banner_type'=>4])->orderBy('id', 'desc')->first();
+        $packages = Package::where('status',1)->latest()->get(); 
+        return view('website.pages.booking', compact('order_banner','packages'));
     }
+
     public function order(Request $request)
     {
         $consultation                = new Consultation();

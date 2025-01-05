@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Package;
 use App\Models\Service;
 use App\Models\Slider;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return view('admin.slider.create',['services'=>Service::all()]);
+        return view('admin.slider.create',['services'=>Package::where('status',1)->get()]);
     }
 
     /**
@@ -48,7 +49,7 @@ class SliderController extends Controller
     {
         return view('admin.slider.edit', [
             'slider' => $slider,
-            'services'=>Service::all()
+            'services'=>Package::where('status',1)->get(),
         ]);
     }
 

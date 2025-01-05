@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('/') }}website/assets/images/favicon.png">
+    <link rel="icon" type="image/png" href="{{ asset($company_front->favicon) }}">
     @include('layouts.front-end.includes.style')
     <title>Travele | @yield('title') </title>
 </head>

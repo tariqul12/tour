@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\OtherImage;
 use App\Models\Package;
 use Illuminate\Http\Request;
 
@@ -26,21 +27,38 @@ class PackageController extends Controller
      */
     public function store(Request $request)
     {
-        self::saveInfo(new Package(), $request);
+     
+        if($image = $request->file('image')){
+            $imageUrl = getFileUrl($image, 'uploads/package-image/');
+        }else{
+            $imageUrl = '';
+        }
+      
+        $package = self::saveInfo(new Package(), $request,$imageUrl);
+
+        if ($images = $request->file('other_image'))
+        {
+            OtherImage::newOtherImage($images,$package->id);
+        }
         return back()->with('message', 'package add successfully');
     }
 
-    private static function saveInfo($package, $request)
+    private static function saveInfo($package, $request,$imageUrl)
     {
         $package->title = $request->title;
         $package->sub_title = $request->sub_title;
-        $package->speed = $request->speed;
-        $package->download_speed = $request->download_speed;
-        $package->up_speed = $request->up_speed;
-        $package->price = $request->price;
-        $package->description = $request->description;
+        $package->duration = $request->duration;
+        $package->single_price = $request->single_price;
+        $package->couple_price = $request->couple_price;
+        $package->place = $request->place;
+        $package->image = $imageUrl;
+        $package->short_description = $request->short_description;
+        $package->long_description = $request->long_description;
+        $package->tour_start_date = $request->tour_start_date;
+        $package->tour_end_date = $request->tour_end_date;
         $package->status = $request->status;
         $package->save();
+        return $package;
     }
 
     /**
@@ -64,7 +82,23 @@ class PackageController extends Controller
      */
     public function update(Request $request, Package $package)
     {
-        self::saveInfo($package, $request);
+        if ($image = $request->file('image'))
+        {
+            $imageUrl = getFileUrl($image, 'uploads/package-image/');
+            if(file_exists($package->image))
+            {
+                unlink($package->image);
+            }
+        }
+        else
+        {
+            $imageUrl = $package->image;
+        }
+        self::saveInfo($package, $request,$imageUrl);
+        if ($images = $request->file('other_image'))
+        {
+            OtherImage::updateOtherImage($images,$package->id);
+        }
         return redirect('package')->with('message', 'package edit successfully');
     }
 
@@ -74,6 +108,11 @@ class PackageController extends Controller
     public function destroy(Package $package)
     {
         $package->delete();
+        if (file_exists($package->image))
+        {
+            unlink($package->image);
+        }
+        OtherImage::deleteOtherImage($package->id);
         return redirect('package')->with('message', 'package Delete successfully');
     }
 }

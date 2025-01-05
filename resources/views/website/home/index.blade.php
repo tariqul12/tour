@@ -5,40 +5,23 @@
     <!-- Home slider html start -->
     <section class="home-slider-section">
         <div class="home-slider">
-            <div class="home-banner-items">
-                <div class="banner-inner-wrap"
-                    style="background-image: url({{ asset('/') }}website/assets/images/slider-banner-1.jpg);">
-                </div>
-                <div class="banner-content-wrap">
-                    <div class="container">
-                        <div class="banner-content text-center">
-                            <h2 class="banner-title">TRAVELLING AROUND THE WORLD</h2>
-                            <p>Taciti quasi, sagittis excepteur hymenaeos, id temporibus hic proident ullam,
-                                eaque donec delectus tempor consectetur nunc, purus congue? Rem volutpat
-                                sodales! Mollit. Minus exercitationem wisi.</p>
-                            <a href="#" class="button-primary">CONTINUE READING</a>
+            @foreach ($sliders as $slider)
+                <div class="home-banner-items">
+                    <div class="banner-inner-wrap" style="background-image: url({{ asset($slider->image) }});">
+                    </div>
+                    <div class="banner-content-wrap">
+                        <div class="container">
+                            <div class="banner-content text-center">
+                                <h2 class="banner-title">{{ $slider->title }}</h2>
+                                <p>{{ $slider->description }}</p>
+                                <a href="{{ route('packageOrder', $slider->service_id) }}" class="button-primary">CONTINUE
+                                    READING</a>
+                            </div>
                         </div>
                     </div>
+                    <div class="overlay"></div>
                 </div>
-                <div class="overlay"></div>
-            </div>
-            <div class="home-banner-items">
-                <div class="banner-inner-wrap"
-                    style="background-image: url({{ asset('/') }}website/assets/images/slider-banner-2.jpg);">
-                </div>
-                <div class="banner-content-wrap">
-                    <div class="container">
-                        <div class="banner-content text-center">
-                            <h2 class="banner-title">EXPERIENCE THE NATURE'S BEAUTY</h2>
-                            <p>Taciti quasi, sagittis excepteur hymenaeos, id temporibus hic proident ullam,
-                                eaque donec delectus tempor consectetur nunc, purus congue? Rem volutpat
-                                sodales! Mollit. Minus exercitationem wisi.</p>
-                            <a href="#" class="button-primary">CONTINUE READING</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="overlay"></div>
-            </div>
+            @endforeach
         </div>
     </section>
     <!-- slider html start -->
@@ -51,99 +34,38 @@
                         <h5 class="dash-style">POPULAR DESTINATION</h5>
                         <h2>TOP NOTCH DESTINATION</h2>
                     </div>
-                    <div class="col-lg-5">
-                        <div class="section-disc">
-                            Aperiam sociosqu urna praesent, tristique, corrupti condimentum asperiores platea
-                            ipsum ad arcu. Nostrud. Aut nostrum, ornare quas provident laoreet nesciunt.
-                        </div>
-                    </div>
+
                 </div>
             </div>
             <div class="destination-inner destination-three-column">
                 <div class="row">
-                    <div class="col-lg-7">
+
+                    <div class="col-lg-12">
                         <div class="row">
-                            <div class="col-sm-6">
-                                <div class="desti-item overlay-desti-item">
-                                    <figure class="desti-image">
-                                        <img src="{{ asset('/') }}website/assets/images/img1.jpg" alt="">
-                                    </figure>
-                                    <div class="meta-cat bg-meta-cat">
-                                        <a href="#">THAILAND</a>
-                                    </div>
-                                    <div class="desti-content">
-                                        <h3>
-                                            <a href="#">Disney Land</a>
-                                        </h3>
-                                        <div class="rating-start" title="Rated 5 out of 4">
-                                            <span style="width: 53%"></span>
+                            @foreach ($destinations as $destination)
+                                <div class="col-md-6">
+                                    <div class="desti-item overlay-desti-item">
+                                        <figure class="desti-image">
+                                            <img style="width: 100%; height: 300px; object-fit: cover;"
+                                                src="{{ asset($destination->image) }}" alt="">
+                                        </figure>
+                                        <div class="meta-cat bg-meta-cat">
+                                            <a href="#">{{ $destination->destination }}</a>
+                                        </div>
+                                        <div class="desti-content">
+                                            <div class="rating-start" title="Rated 3 out of 5">
+                                                <span style="width: 100%"></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="desti-item overlay-desti-item">
-                                    <figure class="desti-image">
-                                        <img src="{{ asset('/') }}website/assets/images/img2.jpg" alt="">
-                                    </figure>
-                                    <div class="meta-cat bg-meta-cat">
-                                        <a href="#">NORWAY</a>
-                                    </div>
-                                    <div class="desti-content">
-                                        <h3>
-                                            <a href="#">Besseggen Ridge</a>
-                                        </h3>
-                                        <div class="rating-start" title="Rated 5 out of 5">
-                                            <span style="width: 100%"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="row">
-                            <div class="col-md-6 col-xl-12">
-                                <div class="desti-item overlay-desti-item">
-                                    <figure class="desti-image">
-                                        <img src="{{ asset('/') }}website/assets/images/img3.jpg" alt="">
-                                    </figure>
-                                    <div class="meta-cat bg-meta-cat">
-                                        <a href="#">NEW ZEALAND</a>
-                                    </div>
-                                    <div class="desti-content">
-                                        <h3>
-                                            <a href="#">Oxolotan City</a>
-                                        </h3>
-                                        <div class="rating-start" title="Rated 5 out of 5">
-                                            <span style="width: 100%"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xl-12">
-                                <div class="desti-item overlay-desti-item">
-                                    <figure class="desti-image">
-                                        <img src="{{ asset('/') }}website/assets/images/img4.jpg" alt="">
-                                    </figure>
-                                    <div class="meta-cat bg-meta-cat">
-                                        <a href="#">SINGAPORE</a>
-                                    </div>
-                                    <div class="desti-content">
-                                        <h3>
-                                            <a href="#">Marina Bay Sand City</a>
-                                        </h3>
-                                        <div class="rating-start" title="Rated 5 out of 4">
-                                            <span style="width: 60%"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+
                         </div>
                     </div>
                 </div>
                 <div class="btn-wrap text-center">
-                    <a href="#" class="button-primary">MORE DESTINATION</a>
+                    <a href="{{ route('destination.view') }}" class="button-primary">MORE DESTINATION</a>
                 </div>
             </div>
         </div>
@@ -156,167 +78,63 @@
                     <div class="col-lg-8 offset-lg-2">
                         <h5 class="dash-style">EXPLORE GREAT PLACES</h5>
                         <h2>POPULAR PACKAGES</h2>
-                        <p>Mollit voluptatem perspiciatis convallis elementum corporis quo veritatis aliquid
-                            blandit, blandit torquent, odit placeat. Adipiscing repudiandae eius cursus? Nostrum
-                            magnis maxime curae placeat.</p>
+
                     </div>
                 </div>
             </div>
             <div class="package-inner">
                 <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="package-wrap">
-                            <figure class="feature-image">
-                                <a href="#">
-                                    <img src="{{ asset('/') }}website/assets/images/img5.jpg" alt="">
-                                </a>
-                            </figure>
-                            <div class="package-price">
-                                <h6>
-                                    <span>$1,900 </span> / per person
-                                </h6>
-                            </div>
-                            <div class="package-content-wrap">
-                                <div class="package-meta text-center">
-                                    <ul>
-                                        <li>
-                                            <i class="far fa-clock"></i>
-                                            7D/6N
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-user-friends"></i>
-                                            People: 5
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-map-marker-alt"></i>
-                                            Malaysia
-                                        </li>
-                                    </ul>
+                    @foreach ($packages as $package)
+                        <div class="col-lg-4 col-md-6">
+                            <div class="package-wrap">
+                                <figure class="feature-image">
+                                    <a href="{{ route('packageOrder', $package->id) }}">
+                                        <img style="width: 100%; height: 300px; " src="{{ asset($package->image) }}"
+                                            alt="">
+                                    </a>
+                                </figure>
+                                <div class="package-price">
+                                    <h6>
+                                        <span> {{ $package->single_price }} Taka</span> / per person
+                                    </h6>
+                                    {{-- <h6>
+                                        <span>Taka {{ $package->couple_price }}</span> / per couple
+                                    </h6> --}}
                                 </div>
-                                <div class="package-content">
-                                    <h3>
-                                        <a href="#">Sunset view of beautiful lakeside resident</a>
-                                    </h3>
-                                    <div class="review-area">
-                                        <span class="review-text">(25 reviews)</span>
-                                        <div class="rating-start" title="Rated 5 out of 5">
-                                            <span style="width: 60%"></span>
-                                        </div>
+                                <div class="package-content-wrap">
+                                    <div class="package-meta text-center">
+                                        <ul>
+
+                                            <li>
+                                                <i class="fas fa-clock"></i>
+                                                {{ $package->duration }} Day
+                                            </li>
+                                            <li>
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                {{ $package->place }}
+                                            </li>
+                                            <li>
+                                                <i class="fas fa-calendar-alt"></i>
+                                                {{ $package->tour_start_date }}
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam.
-                                        Ut elit tellus, luctus nec ullam elit tellpus.</p>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="button-text width-6">Book Now<i
-                                                class="fas fa-arrow-right"></i></a>
-                                        <a href="#" class="button-text width-6">Wish List<i
-                                                class="far fa-heart"></i></a>
+                                    <div class="package-content">
+                                        <h3>
+                                            <a
+                                                href="{{ route('packageOrder', $package->id) }}">{{ Str::limit($package->title, 40) }}</a>
+                                        </h3>
+
+                                        <p>{{ Str::substr($package->short_description, 0, 100) }}</p>
+                                        <div class="btn-wrap">
+                                            <a href="{{ route('packageOrder', $package->id) }}"
+                                                class="button-text width-6">Detail<i class="fas fa-arrow-right"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="package-wrap">
-                            <figure class="feature-image">
-                                <a href="#">
-                                    <img src="{{ asset('/') }}website/assets/images/img6.jpg" alt="">
-                                </a>
-                            </figure>
-                            <div class="package-price">
-                                <h6>
-                                    <span>$1,230 </span> / per person
-                                </h6>
-                            </div>
-                            <div class="package-content-wrap">
-                                <div class="package-meta text-center">
-                                    <ul>
-                                        <li>
-                                            <i class="far fa-clock"></i>
-                                            5D/4N
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-user-friends"></i>
-                                            People: 8
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-map-marker-alt"></i>
-                                            Canada
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="package-content">
-                                    <h3>
-                                        <a href="#">Experience the natural beauty of island</a>
-                                    </h3>
-                                    <div class="review-area">
-                                        <span class="review-text">(17 reviews)</span>
-                                        <div class="rating-start" title="Rated 5 out of 5">
-                                            <span style="width: 100%"></span>
-                                        </div>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam.
-                                        Ut elit tellus, luctus nec ullam elit tellpus.</p>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="button-text width-6">Book Now<i
-                                                class="fas fa-arrow-right"></i></a>
-                                        <a href="#" class="button-text width-6">Wish List<i
-                                                class="far fa-heart"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="package-wrap">
-                            <figure class="feature-image">
-                                <a href="#">
-                                    <img src="{{ asset('/') }}website/assets/images/img7.jpg" alt="">
-                                </a>
-                            </figure>
-                            <div class="package-price">
-                                <h6>
-                                    <span>$2,000 </span> / per person
-                                </h6>
-                            </div>
-                            <div class="package-content-wrap">
-                                <div class="package-meta text-center">
-                                    <ul>
-                                        <li>
-                                            <i class="far fa-clock"></i>
-                                            6D/5N
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-user-friends"></i>
-                                            People: 6
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-map-marker-alt"></i>
-                                            Portugal
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="package-content">
-                                    <h3>
-                                        <a href="#">Vacation to the water city of Portugal</a>
-                                    </h3>
-                                    <div class="review-area">
-                                        <span class="review-text">(22 reviews)</span>
-                                        <div class="rating-start" title="Rated 5 out of 5">
-                                            <span style="width: 80%"></span>
-                                        </div>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam.
-                                        Ut elit tellus, luctus nec ullam elit tellpus.</p>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="button-text width-6">Book Now<i
-                                                class="fas fa-arrow-right"></i></a>
-                                        <a href="#" class="button-text width-6">Wish List<i
-                                                class="far fa-heart"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="btn-wrap text-center">
                     <a href="{{ route('packeages') }}" class="button-primary">VIEW ALL PACKAGES</a>
@@ -330,23 +148,21 @@
         <div class="container">
             <div class="row no-gutters align-items-center">
                 <div class="col-lg-5">
-                    <div class="callback-img"
-                        style="background-image: url({{ asset('/') }}website/assets/images/img8.jpg);">
-                        <div class="video-button">
+                    <div class="callback-img">
+                        {{-- <div class="video-button">
                             <a id="video-container" data-video-id="IUN664s7N-c">
                                 <i class="fas fa-play"></i>
                             </a>
-                        </div>
+                        </div> --}}
+                        <img src="{{ asset($about->image2) }}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-7">
                     <div class="callback-inner">
                         <div class="section-heading section-heading-white">
-                            <h5 class="dash-style">CALLBACK FOR MORE</h5>
-                            <h2>GO TRAVEL. DISCOVER. REMEMBER US!!</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus
-                                nec ullamcorper mattis, pulvinar dapibus leo. Eaque adipiscing, luctus eleifend.
-                            </p>
+                            <h5 class="dash-style">ABOUT US</h5>
+                            <h2>{{ $about->title }}</h2>
+                            <p>{!! $about->description !!}</p>
                         </div>
                         <div class="callback-counter-wrap">
                             <div class="counter-item">
@@ -355,7 +171,7 @@
                                 </div>
                                 <div class="counter-content">
                                     <span class="counter-no">
-                                        <span class="counter">500</span>K+
+                                        <span class="counter">{{ $about->happy_customer }}</span>K+
                                     </span>
                                     <span class="counter-text">
                                         Satisfied Clients
@@ -368,10 +184,10 @@
                                 </div>
                                 <div class="counter-content">
                                     <span class="counter-no">
-                                        <span class="counter">250</span>K+
+                                        <span class="counter">{{ $about->awards }}</span>K+
                                     </span>
                                     <span class="counter-text">
-                                        Satisfied Clients
+                                        Awards Achieve
                                     </span>
                                 </div>
                             </div>
@@ -381,10 +197,10 @@
                                 </div>
                                 <div class="counter-content">
                                     <span class="counter-no">
-                                        <span class="counter">15</span>K+
+                                        <span class="counter">{{ $about->members }}</span>K+
                                     </span>
                                     <span class="counter-text">
-                                        Satisfied Clients
+                                        Active Members
                                     </span>
                                 </div>
                             </div>
@@ -394,10 +210,10 @@
                                 </div>
                                 <div class="counter-content">
                                     <span class="counter-no">
-                                        <span class="counter">10</span>K+
+                                        <span class="counter">{{ $about->destinations }}</span>K+
                                     </span>
                                     <span class="counter-text">
-                                        Satisfied Clients
+                                        Tour Destnation
                                     </span>
                                 </div>
                             </div>
@@ -409,7 +225,7 @@
                             <div class="support-content">
                                 <h4>Our 24/7 Emergency Phone Services</h4>
                                 <h3>
-                                    <a href="#">Call: 123-456-7890</a>
+                                    <a href="#">Call: {{ $company_front->contact_phone }}</a>
                                 </h3>
                             </div>
                         </div>
@@ -529,147 +345,38 @@
     </section>
     <!-- activity html end -->
     <!-- Home special section html start -->
-    <section class="special-section">
-        <div class="container">
-            <div class="section-heading text-center">
-                <div class="row">
-                    <div class="col-lg-8 offset-lg-2">
-                        <h5 class="dash-style">TRAVEL OFFER & DISCOUNT</h5>
-                        <h2>SPECIAL TRAVEL OFFER</h2>
-                        <p>Mollit voluptatem perspiciatis convallis elementum corporis quo veritatis aliquid
-                            blandit, blandit torquent, odit placeat. Adipiscing repudiandae eius cursus? Nostrum
-                            magnis maxime curae placeat.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="special-inner">
-                <div class="row">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="special-item">
-                            <figure class="special-img">
-                                <img src="{{ asset('/') }}website/assets/images/img9.jpg" alt="">
-                            </figure>
-                            <div class="badge-dis">
-                                <span>
-                                    <strong>20%</strong>
-                                    off
-                                </span>
-                            </div>
-                            <div class="special-content">
-                                <div class="meta-cat">
-                                    <a href="#">CANADA</a>
-                                </div>
-                                <h3>
-                                    <a href="#">Experience the natural beauty of glacier</a>
-                                </h3>
-                                <div class="package-price">
-                                    Price:
-                                    <del>$1500</del>
-                                    <ins>$1200</ins>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="special-item">
-                            <figure class="special-img">
-                                <img src="{{ asset('/') }}website/assets/images/img10.jpg" alt="">
-                            </figure>
-                            <div class="badge-dis">
-                                <span>
-                                    <strong>15%</strong>
-                                    off
-                                </span>
-                            </div>
-                            <div class="special-content">
-                                <div class="meta-cat">
-                                    <a href="#">NEW ZEALAND</a>
-                                </div>
-                                <h3>
-                                    <a href="#">Trekking to the mountain camp site</a>
-                                </h3>
-                                <div class="package-price">
-                                    Price:
-                                    <del>$1300</del>
-                                    <ins>$1105</ins>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="special-item">
-                            <figure class="special-img">
-                                <img src="{{ asset('/') }}website/assets/images/img11.jpg" alt="">
-                            </figure>
-                            <div class="badge-dis">
-                                <span>
-                                    <strong>15%</strong>
-                                    off
-                                </span>
-                            </div>
-                            <div class="special-content">
-                                <div class="meta-cat">
-                                    <a href="#">MALAYSIA</a>
-                                </div>
-                                <h3>
-                                    <a href="#">Sunset view of beautiful lakeside city</a>
-                                </h3>
-                                <div class="package-price">
-                                    Price:
-                                    <del>$1800</del>
-                                    <ins>$1476</ins>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- special html end -->
-    <!-- Home special section html start -->
-    <section class="best-section">
+    <section class="best-section mb-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-5">
                     <div class="section-heading">
                         <h5 class="dash-style">OUR TOUR GALLERY</h5>
                         <h2>BEST TRAVELER'S SHARED PHOTOS</h2>
-                        <p>Aperiam sociosqu urna praesent, tristique, corrupti condimentum asperiores platea
-                            ipsum ad arcu. Nostrud. Esse? Aut nostrum, ornare quas provident laoreet nesciunt
-                            odio voluptates etiam, omnis.</p>
                     </div>
                     <figure class="gallery-img">
-                        <img src="{{ asset('/') }}website/assets/images/img12.jpg" alt="">
+                        <img src="{{ asset($gallerysingle->image) }}" alt="">
                     </figure>
                 </div>
                 <div class="col-lg-7">
                     <div class="row">
-                        <div class="col-sm-6">
-                            <figure class="gallery-img">
-                                <img src="{{ asset('/') }}website/assets/images/img13.jpg" alt="">
-                            </figure>
-                        </div>
-                        <div class="col-sm-6">
-                            <figure class="gallery-img">
-                                <img src="{{ asset('/') }}website/assets/images/img14.jpg" alt="">
-                            </figure>
-                        </div>
+                        @foreach ($gallerys as $gallery)
+                            <div class="col-sm-6">
+                                <figure class="gallery-img">
+                                    <img src="{{ asset($gallery->image) }}" alt="">
+                                </figure>
+                            </div>
+                        @endforeach
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <figure class="gallery-img">
-                                <img src="{{ asset('/') }}website/assets/images/img15.jpg" alt="">
-                            </figure>
-                        </div>
-                    </div>
+
                 </div>
+
             </div>
+        </div>
         </div>
     </section>
     <!-- best html end -->
     <!-- Home client section html start -->
-    <div class="client-section">
+    {{-- <div class="client-section">
         <div class="container">
             <div class="client-wrap client-slider secondary-bg">
                 <div class="client-item">
@@ -704,17 +411,16 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- client html end -->
     <!-- Home subscribe section html start -->
-    <section class="subscribe-section"
-        style="background-image: url({{ asset('/') }}website/assets/images/img16.jpg);">
+    <section class="subscribe-section" style="background-image: url({{ asset($home_banner->image) }});">
         <div class="container">
             <div class="row">
                 <div class="col-lg-7">
                     <div class="section-heading section-heading-white">
-                        <h5 class="dash-style">HOLIDAY PACKAGE OFFER</h5>
-                        <h2>HOLIDAY SPECIAL 25% OFF !</h2>
+                        <h5 class="dash-style">HOLIDAY PACKAGE</h5>
+                        <h2>Suscribtion</h2>
                         <h4>Sign up now to recieve hot special offers and information about the best tour
                             packages, updates and discounts !!</h4>
                         <div class="newsletter-form">
@@ -723,9 +429,7 @@
                                 <input type="submit" name="signup" value="SIGN UP NOW!">
                             </form>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
-                            ullamcorper mattis, pulvinar dapibus leo. Eaque adipiscing, luctus eleifend
-                            temporibus occaecat luctus eleifend tempo ribus.</p>
+
                     </div>
                 </div>
             </div>
@@ -738,158 +442,50 @@
             <div class="section-heading text-center">
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
-                        <h5 class="dash-style">FROM OUR BLOG</h5>
-                        <h2>OUR RECENT POSTS</h2>
-                        <p>Mollit voluptatem perspiciatis convallis elementum corporis quo veritatis aliquid
-                            blandit, blandit torquent, odit placeat. Adipiscing repudiandae eius cursus? Nostrum
-                            magnis maxime curae placeat.</p>
+                        <h5 class="dash-style">FROM OUR CLIENTS</h5>
+                        <h2>OUR CLIENTS SAY</h2>
+
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 col-lg-4">
-                    <article class="post">
-                        <figure class="feature-image">
-                            <a href="#">
-                                <img src="{{ asset('/') }}website/assets/images/img17.jpg" alt="">
-                            </a>
-                        </figure>
-                        <div class="entry-content">
-                            <h3>
-                                <a href="#">Life is a beautiful journey not a destination</a>
-                            </h3>
-                            <div class="entry-meta">
-                                <span class="byline">
-                                    <a href="#">Demoteam</a>
-                                </span>
-                                <span class="posted-on">
-                                    <a href="#">August 17, 2021</a>
-                                </span>
-                                <span class="comments-link">
-                                    <a href="#">No Comments</a>
-                                </span>
+            <!-- Home testimonial section html start -->
+            <div class="testimonial-section"
+                style="background-image: url({{ asset('/') }}website/assets/images/img23.jpg);">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 offset-lg-1">
+                            <div class="testimonial-inner testimonial-slider">
+                                @foreach ($clients as $client)
+                                    <div class="testimonial-item text-center">
+                                        <figure class="testimonial-img">
+                                            <img src="{{ asset($client->image) }}" alt="">
+                                        </figure>
+                                        <div class="testimonial-content">
+                                            <p>" {{ $client->message }} "</p>
+                                            <cite>
+                                                {{ $client->name }}
+                                                <span class="company">{{ $client->company }}</span>
+                                            </cite>
+                                        </div>
+                                    </div>
+                                @endforeach
+
                             </div>
                         </div>
-                    </article>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <article class="post">
-                        <figure class="feature-image">
-                            <a href="#">
-                                <img src="{{ asset('/') }}website/assets/images/img18.jpg" alt="">
-                            </a>
-                        </figure>
-                        <div class="entry-content">
-                            <h3>
-                                <a href="#">Take only memories, leave only footprints</a>
-                            </h3>
-                            <div class="entry-meta">
-                                <span class="byline">
-                                    <a href="#">Demoteam</a>
-                                </span>
-                                <span class="posted-on">
-                                    <a href="#">August 17, 2021</a>
-                                </span>
-                                <span class="comments-link">
-                                    <a href="#">No Comments</a>
-                                </span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <article class="post">
-                        <figure class="feature-image">
-                            <a href="#">
-                                <img src="{{ asset('/') }}website/assets/images/img19.jpg" alt="">
-                            </a>
-                        </figure>
-                        <div class="entry-content">
-                            <h3>
-                                <a href="#">Journeys are best measured in new friends</a>
-                            </h3>
-                            <div class="entry-meta">
-                                <span class="byline">
-                                    <a href="#">Demoteam</a>
-                                </span>
-                                <span class="posted-on">
-                                    <a href="#">August 17, 2021</a>
-                                </span>
-                                <span class="comments-link">
-                                    <a href="#">No Comments</a>
-                                </span>
-                            </div>
-                        </div>
-                    </article>
+                    </div>
                 </div>
             </div>
+            <!-- testimonial html end -->
         </div>
     </section>
     <!-- blog html end -->
-    <!-- Home testimonial section html start -->
-    <div class="testimonial-section" style="background-image: url({{ asset('/') }}website/assets/images/img23.jpg);">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="testimonial-inner testimonial-slider">
-                        <div class="testimonial-item text-center">
-                            <figure class="testimonial-img">
-                                <img src="{{ asset('/') }}website/assets/images/img20.jpg" alt="">
-                            </figure>
-                            <div class="testimonial-content">
-                                <p>" Dolorum aenean dolorem minima! Voluptatum? Corporis condimentum ac primis
-                                    fusce, atque! Vivamus. Non cupiditate natus excepturi, quod quo, aute
-                                    facere? Deserunt aliquip, egestas ipsum, eu.Dolorum aenean dolorem minima!?
-                                    Corporis condi mentum acpri! "</p>
-                                <cite>
-                                    Johny English
-                                    <span class="company">Travel Agent</span>
-                                </cite>
-                            </div>
-                        </div>
-                        <div class="testimonial-item text-center">
-                            <figure class="testimonial-img">
-                                <img src="{{ asset('/') }}website/assets/images/img21.jpg" alt="">
-                            </figure>
-                            <div class="testimonial-content">
-                                <p>" Dolorum aenean dolorem minima! Voluptatum? Corporis condimentum ac primis
-                                    fusce, atque! Vivamus. Non cupiditate natus excepturi, quod quo, aute
-                                    facere? Deserunt aliquip, egestas ipsum, eu.Dolorum aenean dolorem minima!?
-                                    Corporis condi mentum acpri! "</p>
-                                <cite>
-                                    William Housten
-                                    <span class="company">Travel Agent</span>
-                                </cite>
-                            </div>
-                        </div>
-                        <div class="testimonial-item text-center">
-                            <figure class="testimonial-img">
-                                <img src="{{ asset('/') }}website/assets/images/img22.jpg" alt="">
-                            </figure>
-                            <div class="testimonial-content">
-                                <p>" Dolorum aenean dolorem minima! Voluptatum? Corporis condimentum ac primis
-                                    fusce, atque! Vivamus. Non cupiditate natus excepturi, quod quo, aute
-                                    facere? Deserunt aliquip, egestas ipsum, eu.Dolorum aenean dolorem minima!?
-                                    Corporis condi mentum acpri! "</p>
-                                <cite>
-                                    Alison Wright
-                                    <span class="company">Travel Guide</span>
-                                </cite>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- testimonial html end -->
+
     <!-- Home contact details section html start -->
     <section class="contact-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="contact-img"
-                        style="background-image: url({{ asset('/') }}website/assets/images/img24.jpg);">
+                    <div class="contact-img" style="background-image: url({{ asset($gallerysingle->image) }});">
                     </div>
                 </div>
                 <div class="col-lg-8">
@@ -902,17 +498,12 @@
                                     </div>
                                     <ul>
                                         <li>
-                                            <a href="#"><span class="__cf_email__"
-                                                    data-cfemail="572422272738252317303a363e3b7934383a">[email&#160;protected]</span></a>
+                                            <a href="#">{{ $company_front->contact_email }}</a>
                                         </li>
                                         <li>
-                                            <a href="#"><span class="__cf_email__"
-                                                    data-cfemail="e78e898188a783888a868e89c984888a">[email&#160;protected]</span></a>
+                                            <a href="#">{{ $company_front->support_email }}</a>
                                         </li>
-                                        <li>
-                                            <a href="#"><span class="__cf_email__"
-                                                    data-cfemail="1678777b735675797b6677786f3875797b">[email&#160;protected]</span></a>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -923,14 +514,12 @@
                                     </div>
                                     <ul>
                                         <li>
-                                            <a href="#">+132 (599) 254 669</a>
+                                            <a href="#">{{ $company_front->contact_phone }}</a>
                                         </li>
                                         <li>
-                                            <a href="#">+123 (669) 255 587</a>
+                                            <a href="#">{{ $company_front->support_phone }}</a>
                                         </li>
-                                        <li>
-                                            <a href="#">+01 (977) 2599 12</a>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -940,15 +529,8 @@
                                         <img src="{{ asset('/') }}website/assets/images/icon14.png" alt="">
                                     </div>
                                     <ul>
-                                        <li>
-                                            3146 Koontz, California
-                                        </li>
-                                        <li>
-                                            Quze.24 Second floor
-                                        </li>
-                                        <li>
-                                            36 Street, Melbourne
-                                        </li>
+
+                                        <li>{{ $company_front->company_address }}</li>
                                     </ul>
                                 </div>
                             </div>
@@ -956,7 +538,7 @@
                     </div>
                     <div class="contact-btn-wrap">
                         <h3>LET'S JOIN US FOR MORE UPDATE !!</h3>
-                        <a href="#" class="button-primary">LEARN MORE</a>
+                        <a href="{{ route('contact') }}" class="button-primary">LEARN MORE</a>
                     </div>
                 </div>
             </div>

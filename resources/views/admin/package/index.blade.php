@@ -36,11 +36,12 @@
                                 <tr class="text-center">
                                     <th class="border-bottom-0">SL No</th>
                                     <th class="border-bottom-0">title</th>
-                                    <th class="border-bottom-0">sub title</th>
-                                    <th class="border-bottom-0">speed</th>
-                                    <th class="border-bottom-0">download speed</th>
-                                    <th class="border-bottom-0">up speed</th>
-                                    <th class="border-bottom-0">price</th>
+                                    <th class="border-bottom-0">Single Price</th>
+                                    <th class="border-bottom-0">Couple Price</th>
+                                    <th class="border-bottom-0">Duration</th>
+                                    <th class="border-bottom-0">Place</th>
+                                    <th class="border-bottom-0">start date</th>
+                                    <th class="border-bottom-0">end date</th>
                                     <th class="border-bottom-0">Status</th>
                                     <th class="border-bottom-0">Action</th>
                                 </tr>
@@ -49,12 +50,14 @@
                                 @foreach ($packages as $package)
                                     <tr class="text-center">
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $package->title }}</td>
-                                        <td>{{ $package->sub_title }}</td>
-                                        <td>{{ $package->speed }}</td>
-                                        <td>{{ $package->download_speed }}</td>
-                                        <td>{{ $package->up_speed }}</td>
-                                        <td>{{ $package->price }}</td>
+                                        <td><img height="50" width="50" src="{{ asset($package->image) }}"
+                                                alt="package Image">{{ ' ' . Str::limit($package->title, 50) }}</td>
+                                        <td>{{ $package->single_price }} Taka</td>
+                                        <td>{{ $package->couple_price }} Taka</td>
+                                        <td>{{ $package->duration }} Day</td>
+                                        <td>{{ $package->place }}</td>
+                                        <td>{{ $package->tour_start_date }}</td>
+                                        <td>{{ $package->tour_end_date }}</td>
                                         <td>{{ $package->status == 1 ? 'published' : 'unpublished' }}</td>
                                         <td class="text-center">
                                             <a href="{{ route('package.edit', $package->id) }}"

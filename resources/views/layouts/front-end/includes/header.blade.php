@@ -79,7 +79,7 @@
                 </nav>
             </div>
             <div class="header-btn">
-                <a href="{{ route('contact') }}" class="button-primary">MESSAGE</a>
+                <a href="{{ route('package.booking') }}" class="button-primary">BOOKING</a>
             </div>
         </div>
     </div>

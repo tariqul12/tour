@@ -45,16 +45,16 @@
                                 <textarea class="form-control" id="summernote" name="description" placeholder="Description">{{ $about->description }}</textarea>
                             </div>
                         </div>
-                        <div class="row mb-4">
+                        {{-- <div class="row mb-4">
                             <label for="imgInp" class="col-md-3 form-label">About Image One</label>
                             <div class="col-md-9">
                                 <input type="file" name="image1" class="dropify" data-height="200" />
                                 <img width="120" class="my-1" src="{{ asset($about->image1) }}" id=""
                                     alt="">
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="row mb-4">
-                            <label for="iconInp" class="col-md-3 form-label">About Image tow</label>
+                            <label for="iconInp" class="col-md-3 form-label">About Image </label>
                             <div class="col-md-9">
                                 <input class="dropify" name="image2" type="file" data-height="200" />
                                 <img width="120" class="my-1" src="{{ asset($about->image2) }}" id=""
@@ -62,10 +62,10 @@
                             </div>
                         </div>
                         <div class="row mb-4">
-                            <label for="name" class="col-md-3 form-label">Network Coverage Areas</label>
+                            <label for="name" class="col-md-3 form-label">Tour Destnation</label>
                             <div class="col-md-9">
-                                <input class="form-control" value="{{ $about->network }}" name="network"
-                                    placeholder="Network Coverage Areas" type="number" />
+                                <input class="form-control" value="{{ $about->destinations }}" name="destinations"
+                                    placeholder="Tour Destnation" type="number" />
                             </div>
                         </div>
                         <div class="row mb-4">
@@ -76,10 +76,10 @@
                             </div>
                         </div>
                         <div class="row mb-4">
-                            <label for="name" class="col-md-3 form-label">Experienced Employees</label>
+                            <label for="name" class="col-md-3 form-label">Active Members</label>
                             <div class="col-md-9">
-                                <input class="form-control" value="{{ $about->employee }}" name="employee"
-                                    placeholder="employee" type="number" />
+                                <input class="form-control" value="{{ $about->members }}" name="members"
+                                    placeholder="Active Members" type="number" />
                             </div>
                         </div>
                         <div class="row mb-4">

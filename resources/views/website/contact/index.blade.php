@@ -6,8 +6,7 @@
 
     <!-- Inner Banner html start-->
     <section class="inner-banner-wrap">
-        <div class="inner-baner-container"
-            style="background-image: url({{ asset('/') }}website/assets/images/inner-banner.jpg);">
+        <div class="inner-baner-container" style="background-image: url({{ asset($contact_banner->image) }});">
             <div class="container">
                 <div class="inner-banner-content">
                     <h1 class="inner-title">Contact us</h1>
@@ -27,11 +26,10 @@
                             <div class="section-heading">
                                 <h5 class="dash-style">GET IN TOUCH</h5>
                                 <h2>CONTACT US TO GET MORE INFO</h2>
-                                <p>Aperiam sociosqu urna praesent, tristique, corrupti condimentum asperiores platea ipsum
-                                    ad arcu. Nostrud. Esse? Aut nostrum, ornare quas provident laoreet nesciunt odio
-                                    voluptates etiam, omnis.</p>
+                                <p>Contact us for any queries or a custom tour package.</p>
                             </div>
-                            <form class="contact-from">
+                            <form class="contact-from" action="{{ route('contact.store') }}" method="POST">
+                                @csrf
                                 <p>
                                     <input type="text" name="name" placeholder="Your Name*">
                                 </p>
@@ -39,7 +37,10 @@
                                     <input type="email" name="email" placeholder="Your Email*">
                                 </p>
                                 <p>
-                                    <textarea rows="8" placeholder="Your Message*"></textarea>
+                                    <input type="number" name="phone" placeholder="Your Phone*">
+                                </p>
+                                <p>
+                                    <textarea rows="8" name="message" placeholder="Your Message*"></textarea>
                                 </p>
                                 <p>
                                     <input type="submit" name="submit" value="SUBMIT MESSAGE">
@@ -50,11 +51,10 @@
                     <div class="col-md-6">
                         <div class="contact-detail-wrap">
                             <h3>Need help ?? Feel free to contact us !</h3>
-                            <p>Penatibus numquam? Non? Aliqua tempore est deserunt sequi itaque, nascetur, consequuntur
-                                conubianigp, explicabo? Primis convallis ullam. Egestas deserunt eius molestias app
-                                incididunt.</p>
-                            <p>Nostra doloribus blandit et semper ultrices, quibusdam dignissimos! Netus recusandae, rerum
-                                cupidatat. Perferendis aptent wisi.</p>
+                            <p>Please contact us in case of any questions. We’re happy to answer them and ready to help you
+                                tailor any kind of travel and process all kinds of demands from private individual trips to
+                                group travels, cargo handling, helicopter and boat rental to private charter in all of
+                                Bangladesh</p>
                             <div class="details-list">
                                 <ul>
                                     <li>

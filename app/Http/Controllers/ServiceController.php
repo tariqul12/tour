@@ -32,10 +32,7 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $this->service = Service::newService($request);
-        if ($images = $request->file('other_image'))
-        {
-            OtherImage::newOtherImage($images,$this->service->id);
-        }
+       
         return back()->with('message','Service Create Successfully');
     }
 
@@ -45,7 +42,7 @@ class ServiceController extends Controller
     public function show(Service $service)
     {
         return view('admin.service.show',[
-            'service'=>$service,
+            'service'=> $service,
             ]);
     }
 
@@ -66,10 +63,6 @@ class ServiceController extends Controller
     public function update(Request $request, Service $service)
     {
         Service::updateService($request,$service);
-        if ($images = $request->file('other_image'))
-        {
-            OtherImage::updateOtherImage($images,$service->id);
-        }
         return redirect('service')->with('message','Service edit successfully');
     }
 
@@ -79,7 +72,6 @@ class ServiceController extends Controller
     public function destroy(Service $service)
     {
         Service::deleteService($service);
-        OtherImage::deleteOtherImage($service->id);
         return redirect('service')->with('message','Service Delete successfully');
     }
 }

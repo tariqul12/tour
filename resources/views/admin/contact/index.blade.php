@@ -1,8 +1,8 @@
 @extends('layouts.back-end.master')
-@section('title','contact page')
+@section('title', 'contact page')
 @section('body')
-<!-- PAGE-HEADER -->
-<div class="page-header">
+    <!-- PAGE-HEADER -->
+    <div class="page-header">
         <div>
             <h1 class="page-title">Contact Module</h1>
         </div>
@@ -26,28 +26,28 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <p class="text-primary text-center fw-bold fs-6">{{session('message')}}</p>
+                    <p class="text-primary text-center fw-bold fs-6">{{ session('message') }}</p>
                     <div class="table-responsive">
                         <table id="example3" class="table table-bordered text-nowrap border-bottom">
                             <thead>
-                            <tr class="text-center">
-                                <th class="border-bottom-0">SL No</th>
-                                <th class="border-bottom-0">Name</th>
-                                <th class="border-bottom-0">Email</th>
-                                <th class="border-bottom-0">Subject</th>
-                                <th class="border-bottom-0">message</th>
-                            </tr>
+                                <tr class="text-center">
+                                    <th class="border-bottom-0">SL No</th>
+                                    <th class="border-bottom-0">Name</th>
+                                    <th class="border-bottom-0">Email</th>
+                                    {{-- <th class="border-bottom-0">Subject</th> --}}
+                                    <th class="border-bottom-0">message</th>
+                                </tr>
                             </thead>
                             <tbody>
-                            @foreach($contacts as $contact)
-                                <tr class="text-center">
-                                    <td>{{$loop->iteration}}</td>
-                                    <td>{!! $contact->name.'<br> ('.$contact->phone.')' !!}</td>
-                                    <td>{{$contact->email}}</td>
-                                    <td>{{$contact->subject}}</td>
-                                    <td>{{$contact->message}}</td>
-                                </tr>
-                            @endforeach
+                                @foreach ($contacts as $contact)
+                                    <tr class="text-center">
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{!! $contact->name . '<br> (' . $contact->phone . ')' !!}</td>
+                                        <td>{{ $contact->email }}</td>
+                                        {{-- <td>{{$contact->subject}}</td> --}}
+                                        <td>{{ $contact->message }}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

@@ -18,6 +18,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ConsultationController;
+use App\Http\Controllers\DestinationController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\TConditionController;
@@ -47,7 +49,9 @@ Route::get('category/service/{id}', [Welcomeontroller::class, 'categoryService']
 
 Route::post('/package/order/', [Welcomeontroller::class, 'order'])->name('package.order');
 
-Route::get('/package/order/', [Welcomeontroller::class, 'packageOrder'])->name('packageOrder');
+Route::get('/package/booking/', [Welcomeontroller::class, 'booking'])->name('package.booking');
+
+Route::get('/package/order/{id}', [Welcomeontroller::class, 'packageOrder'])->name('packageOrder');
 
 Route::get('/policy/pages', [Welcomeontroller::class, 'policy'])->name('policy.page');
 
@@ -82,6 +86,10 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('/user/delete/{id}', [UserController::class, 'delete'])->name('user.delete');
 
     Route::resource('category', CategoryController::class);
+
+    Route::resource('destination', DestinationController::class);
+
+    Route::resource('gallery', GalleryController::class);
 
     Route::resource('brand', BrandController::class);
 

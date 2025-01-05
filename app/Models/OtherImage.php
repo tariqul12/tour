@@ -9,19 +9,19 @@ class OtherImage extends Model
 {
     use HasFactory;
     public static $otherImages;
-    public static function newOtherImage($images,$service_id)
+    public static function newOtherImage($images,$package_id)
     {
         foreach ($images as $image)
         {
             $otherImage             = new OtherImage();
-            $otherImage->service_id = $service_id;
+            $otherImage->package_id = $package_id;
             $otherImage->image      = self::getImageUrl($image);
             $otherImage->save();
         }
     }
-    public static function updateOtherImage($images,$service_id)
+    public static function updateOtherImage($images,$package_id)
     {
-        self::$otherImages = OtherImage::where('service_id',$service_id)->get();
+        self::$otherImages = OtherImage::where('package_id',$package_id)->get();
 
         foreach (self::$otherImages as $image)
         {
@@ -31,7 +31,7 @@ class OtherImage extends Model
             }
             $image->delete();
         }
-        self::newOtherImage($images,$service_id);
+        self::newOtherImage($images,$package_id);
     }
     private static function getImageUrl($image)
     {
@@ -43,7 +43,7 @@ class OtherImage extends Model
     }
     public static function deleteOtherImage($id)
     {
-        $images = OtherImage::where('service_id',$id)->get();
+        $images = OtherImage::where('package_id',$id)->get();
         foreach($images as $image)
         {
             if (file_exists($image->image))

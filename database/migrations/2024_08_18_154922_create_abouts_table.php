@@ -17,9 +17,9 @@ return new class extends Migration
             $table->longText('description');
             $table->string('image1')->nullable();
             $table->string('image2')->nullable();
-            $table->string('network')->nullable();
+            $table->string('members')->nullable();
             $table->string('happy_customer')->nullable();
-            $table->string('employee')->nullable();
+            $table->string('destinations')->nullable();
             $table->string('awards')->nullable();
             $table->timestamps();
         });

@@ -6,6 +6,7 @@ use App\Models\About;
 use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Company;
+use App\Models\Package;
 use Illuminate\Support\ServiceProvider;
 use View;
 
@@ -32,6 +33,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('company_front', Company::latest()->first());
             $view->with('title_banner', Banner::where('banner_type',1)->latest()->first());
             $view->with('footer_banner', Banner::where('banner_type',5)->latest()->first());
+            $view->with('footer_package', Package::where('status',1)->latest()->take(2)->get());
         });
         // view()->composer(["*"],function ($view) {
         //     $view->with('about',About::latest()->first());
